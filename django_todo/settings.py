@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['zks-django-todo-app.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://ldxutjyjawhvbi:6e4cf6c180309b940f8e110aa74496c6504b1728d2d22a7d6dad5d370ddb3214@ec2-54-229-217-195.eu-west-1.compute.amazonaws.com:5432/dduanrig54og1c')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
